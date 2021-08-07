@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+			crossorigin="anonymous"
+		/>
+		<style>
+			.form {
+				width: 200px;
+			}
+
+            #response {
+                width: 300px;
+                height: 300px;
+                margin: 0px auto;
+				display: {{session['display_status']}};
+				background-color: {{session['color']}};
+            }
+            #response h1 {
+                text-align: center;
+                padding: 30% 0px;
+            }
+
+		</style>
+		<title>Great Numbers Game</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<p class="h1 text-center p-3 mb-2 bg-info text-dark">
+						Great Numbers Game!!!
+					</p>
+				</div>
+				<div class="row">
+					<div class="col">
+						<p class="text-center fs-3 mt-5">
+							I am thinking of a number between 1 and 100
+						</p>
+						<p class="text-center fs-3">Take a guess!</p>
+					</div>
+				</div>
+                <div class="row">
+                    <div id="response">
+                        <h1>{{ session['answer_output'] }}</h1>
+                    </div>
+                </div>
+				<div class="row">
+					<div class="col">
+						<form action="/process" method="POST" class="text-center mt-5" id="form">
+							<input type="text" id="guess" name="guess" class="rounded-pill" />
+                            <input type="submit" value="{{ session['play_again'] }}" class="btn btn-info">
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+			crossorigin="anonymous"
+		></script>
+	</body>
+</html>
